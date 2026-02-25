@@ -1,4 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 0%;
+  background: linear-gradient(90deg, #7dafff, #ffffff, #7dafff);
+  box-shadow: 0 0 10px #7dafff, 0 0 20px #ffffff;
+  z-index: 9999;
+  border-radius: 3px;
+  transition: width 0.25s ease;
+}
 @keyframes heroFade {
   from {
     opacity: 0;
@@ -75,6 +87,15 @@ button {
   animation: float 5s ease-in-out infinite;
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
 }
+.gangimg{
+    border: 10px solid rgb(26, 25, 25);
+  border-radius: 50px;
+  animation: float 5s ease-in-out infinite;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+}
+.gangimg:hover{
+  box-shadow: 0 0 60px rgba(125, 175, 255, 0.4);
+}
 
 .arms:hover {
   box-shadow: 0 0 60px rgba(125, 175, 255, 0.4);
@@ -119,7 +140,7 @@ h1 {
   border: 1px solid;
   border-radius: 50px;
   text-align: center;
-  animation: heroFade 2s ease forwards;
+  animation: heroFade 5s ease forwards;
   text-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
   }
 h3 {
@@ -171,10 +192,6 @@ h4 {
   justify-content: center;
 }
 
-.gangimg {
-  border: 10px solid rgb(26, 25, 25);
-  border-radius: 50px;
-}
 .gang {
   width: 100%;
   display: flex;
@@ -367,3 +384,148 @@ h4 {
   border-radius: 20px;
 }
 
+.end1{
+  width: 50%;
+  margin-top: 30px;
+}
+.end2{
+  width: 50%;
+}
+#lund{
+  margin-top: 50px;
+  display: flex;
+}
+.endimg{
+   border: 3px solid rgb(55, 55, 55);
+  border-radius: 20px;
+}
+#dream{
+ margin-top: 50px;
+  display: flex;
+}
+.dream1{
+ width: 50%;
+  margin-top: 30px;
+}
+.dream2{
+  width: 50%;
+  margin-left: 200px;
+}
+.noctdream{
+  border: 3px solid rgb(55, 55, 55);
+  border-radius: 20px;
+}
+.places{
+  display: flex;
+  justify-content: space-around;
+}
+.place1{
+    border: 10px solid rgb(26, 25, 25);
+  border-radius: 50px;
+  animation: float 5s ease-in-out infinite;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+}
+.car{
+  display: flex;
+  justify-content: space-around;
+}
+footer {
+  background: linear-gradient(180deg, #0b0f1a, #000);
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+footer h3 {
+  font-size: 40px;
+  letter-spacing: 15px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 25px rgba(255,255,255,0.15);
+}
+
+footer p {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+  opacity: 0.9;
+}
+.cinematic-footer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0b0f1a, #000);
+  padding: 80px 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.cinematic-footer h3 {
+  font-size: 50px;
+  letter-spacing: 20px;
+  margin-bottom: 25px;
+  text-shadow: 0 0 35px rgba(255,255,255,0.3);
+  animation: footerFade 2s ease forwards;
+  opacity: 0;
+}
+
+.cinematic-footer p {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 8px 0;
+  opacity: 0;
+  animation: footerFade 2s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes footerFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+#footer-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal:nth-child(1) { transition-delay: 0.3s; }
+.reveal:nth-child(2) { transition-delay: 0.6s; }
+.reveal:nth-child(3) { transition-delay: 0.9s; }
+
+
+.hero-content h1 {
+  animation: heroFade 5s ease forwards;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+.hero-content h2 {
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+.particles::before {
+  animation: moveParticles 60s linear infinite;
+  opacity: 0.08; /* slightly lighter for smoother effect */
+}.glow-hover:hover {
+  animation: pulseGlow 1.5s infinite;
+  box-shadow: 0 0 60px rgba(125, 175, 255, 0.4);
+}

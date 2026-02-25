@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="grid.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    
+    <div id="scroll-progress"></div>
       <div class="particles"></div>
       <div id="progress-bar"></div>
       <div class="slash"></div>
@@ -233,10 +233,7 @@
           something more intimate: a connection sustained through letters,
           memories, and faith in one another across an unforgiving world. As
           darkness spreads and the weight of prophecy tightens around them,
-          their love becomes both strength and sorrow. Noctis walks a road
-          marked by loss, forced to grow into a king through hardship and
-          silence. Lunafreya, unwavering in her devotion, carries her sacred
-          calling with calm resolve, even as it demands everything from her. She
+          their love becomes both strength and sorrow. She
           believes in him not as a prince, but as the man he is struggling to
           become. They are rarely granted peace, rarely allowed time together.
           Yet it is in that distance that their bond feels strongest—held
@@ -248,6 +245,46 @@
       </div>
     </div>
 
+
+    <div id="lund">
+      <div class="end1"><h4>As the storm of destiny reaches its peak, Noctis confronts the weight of his crown and the shadows of his lineage. The battlefield becomes a crucible, where sacrifice and duty collide, and the fate of Eos hangs in the balance. In the end, he must embrace both king and man, facing darkness not with fury alone, but with the quiet resolve that defines a true ruler. It is a finale of loss, courage, and the enduring light of hope, where every choice echoes beyond the moment and every bond forged stands eternal.</h4></div>
+      <div class="end2">
+        <img src="end.gif" alt="" class="endimg"></div>
+    </div>
+
+        <div id="dream">
+      <div class="dream1"><img src="noct.gif" alt="" height="420px" class="noctdream" /></div>
+      <div class="dream2">
+        <h4>
+         “Through the haze of sleep and shadow, Noctis’s dreams become a mirror of fate itself—visions of a kingdom fallen, whispers of lost friends, and fleeting glimpses of Lunafreya calling across impossible distances. They are not mere dreams, but fragments of prophecy and memory, blurring the line between reality and inevitability. Each vision haunts him, revealing both the weight of his crown and the cost of the journey ahead, forcing him to confront fears he cannot escape and a destiny he cannot deny. In the silence of night, the young king learns that the battles of the mind are as perilous as those of the battlefield, and that only by facing these dreams can he hope to claim the throne and the future of Eos.”
+        </h4>
+      </div>
+    </div>
+
+    <div>
+<h1>A Kingdom Without Borders</h1>
+</div>
+    <div class="places">
+<div><img src="open.jpg" alt="" height="450px"  class="place1"></div>
+<div ><img src="open1.jpg" alt="" height="450px" class="place1"></div>
+    </div> 
+       <h3>“Experience the boundless kingdom of Eos, where towering mountains, sprawling plains, and hidden forests stretch as far as the eye can see. Every road leads to adventure, every city holds stories of war, hope, and forgotten legends, and every encounter tests your courage and skill. From the scorching deserts of Duscae to the shimmering coasts and ancient ruins, the world is alive—shaped by magic, history, and the footsteps of those who came before. With Noctis and his companions at your side, exploration becomes more than travel—it becomes a journey of discovery, danger, and destiny, where freedom is earned, and every horizon beckons with promise.”</h2>
+<h2>“Traverse Eos in Style — The Regalia”</h2>
+
+<div class="car">
+  <div><img src="car1.gif" alt="" height="300px" class="luna"></div>
+  <div><img src="car.gif" alt="" height="300px" class="luna"></div>
+  <div><img src="car2.gif" alt="" height="300px" class="luna"></div>
+
+</div>
+<footer class="cinematic-footer reveal">
+  <div class="footer-content">
+    <h3>FINAL FANTASY XV</h3>
+    <p>Reclaim your throne. Wander the kingdom of Eos. Embrace destiny with courage, loyalty, and the bonds that define a king. The journey may end, but the legend endures.</p>
+    <p>© 2026 HARSHIT. All Rights Reserved.</p>
+    <canvas id="footer-particles"></canvas>
+  </div>
+</footer>
     <script>
       const reveals = document.querySelectorAll(".reveal");
 
@@ -261,6 +298,93 @@
         });
       });
     </script>
- 
+ <script>
+const canvas = document.getElementById('footer-particles');
+const ctx = canvas.getContext('2d');
+
+let w = canvas.width = window.innerWidth;
+let h = canvas.height = 200;
+let particles = [];
+
+function createParticles() {
+  for(let i=0; i<100; i++){
+    particles.push({
+      x: Math.random()*w,
+      y: Math.random()*h,
+      r: Math.random()*2 + 1,
+      d: Math.random()*2
+    });
+  }
+}
+
+function drawParticles(){
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = 'rgba(255,255,255,0.2)';
+  ctx.beginPath();
+  for(let i=0; i<particles.length; i++){
+    let p = particles[i];
+    ctx.moveTo(p.x, p.y);
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
+  }
+  ctx.fill();
+  moveParticles();
+}
+
+let angle = 0;
+function moveParticles(){
+  angle += 0.01;
+  for(let i=0; i<particles.length; i++){
+    let p = particles[i];
+    p.y += Math.cos(angle+p.d) + 0.5;
+    p.x += Math.sin(angle) * 0.5;
+
+    if(p.y > h){
+      p.y = 0;
+      p.x = Math.random()*w;
+    }
+    if(p.x > w) p.x = 0;
+    if(p.x < 0) p.x = w;
+  }
+}
+
+function animate(){
+  drawParticles();
+  requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', ()=>{
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = 200;
+});
+
+createParticles();
+animate();
+</script>
+<script>
+function revealElements() {
+  const reveals = document.querySelectorAll('.reveal');
+  for (let i = 0; i < reveals.length; i++) {
+    const windowHeight = window.innerHeight;
+    const elementTop = reveals[i].getBoundingClientRect().top;
+    const revealPoint = 150; // trigger distance from bottom
+
+    if (elementTop < windowHeight - revealPoint) {
+      reveals[i].classList.add('active');
+    }
+  }
+}
+
+window.addEventListener('scroll', revealElements);
+window.addEventListener('load', revealElements); // also reveal on load if visible
+</script>
+<script>
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / scrollHeight) * 100;
+  document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+});
+</script>
+
   </body>
 </html>
